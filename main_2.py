@@ -75,7 +75,7 @@ def get_indexes(slides: list):
         index += 1
 
 
-def update_chunk(chunk):
+def update_chunk(chunk, collection_name):
     with ThreadPoolExecutor(max_workers=10) as executor, HashCodeDB() as database:
         try:
             tasks = [executor.submit(
@@ -183,7 +183,7 @@ if __name__ == "__main__":
     chunks = utils.chunks(stored_slides, 10000)
     updated_slides = list()
     with ProcessPoolExecutor(max_workers=4) as process_executor:
-        tasks = [process_executor.submit(update_chunk, chunk)
+        tasks = [process_executor.submit(update_chunk, chunk, collection_name)
                  for chunk in chunks]
         count = 0
         for task in tasks:
