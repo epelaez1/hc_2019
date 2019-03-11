@@ -292,7 +292,8 @@ if __name__ == "__main__":
     #     current_slide.next = new_slide
     #     new_slide.prev  = current_slide
     #     current_slide = new_slide
-    slide_show = [Slide(photos = [Photo(index= index) for index in slide.photos]) for slide in show]
-    output = "/outputs/b_lovely_landscapes.txt"
-    Slide.parse_output(show, output)
+    slide_show = [Slide(photos = [Photo(index= index) for index in slide["photos"]]) for slide in show]
+    output = "outputs/b_lovely_landscapes.txt"
+    Slide.parse_output(slide_show, output)
+    print("Puntuacion total: {}".format(total_points))
     data = 0
