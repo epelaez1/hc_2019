@@ -1,6 +1,6 @@
 class Photo:
     
-    def __init__(self, orientation: bool, numTags: int, tags: list, index: int):
+    def __init__(self, orientation: bool = True, numTags: int = 0, tags: list = [], index: int = 0):
         self.index = index
         self.orientation = orientation
         self.numTags = numTags
